@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SRC – Analyse du compte d'exploitation 2023-2026</title>
+<meta name="description" content="Réponses détaillées à six questions d'analyse financière sur le compte d'exploitation de SRC (Société de la Relation Client), 2023 à 2026.">
+<style>
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --ink:#1b2430; --muted:#5b6675; --line:#dde2e9;
+  --navy:#1f3a5f; --accent:#0f7b8a; --accent-soft:#e3f2f4;
+  --warn:#9a5b00; --warn-soft:#fff4e0; --hyp:#4a4a8a; --hyp-soft:#eeeefa;
+  --s1:#1f3a5f; --s2:#0f9aa8; --s3:#c98a1a;
+  --shadow:0 1px 2px rgba(20,30,45,.06),0 4px 14px rgba(20,30,45,.05);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#10161e; --surface:#18212c; --ink:#e7ecf2; --muted:#9aa7b7; --line:#2b3745;
+    --navy:#8fb4e3; --accent:#4cc3d1; --accent-soft:#16363b;
+    --warn:#f0b455; --warn-soft:#33291a; --hyp:#a9a9ee; --hyp-soft:#232345;
+    --s1:#6f9bd6; --s2:#38b8c6; --s3:#e0a63a; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10161e; --surface:#18212c; --ink:#e7ecf2; --muted:#9aa7b7; --line:#2b3745;
+  --navy:#8fb4e3; --accent:#4cc3d1; --accent-soft:#16363b;
+  --warn:#f0b455; --warn-soft:#33291a; --hyp:#a9a9ee; --hyp-soft:#232345;
+  --s1:#6f9bd6; --s2:#38b8c6; --s3:#e0a63a; --shadow:none;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px}
+
+/* en-tête */
+header.hero{background:var(--navy);color:#fff;padding:56px 0 44px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) header.hero{background:#142235}}
+:root[data-theme="dark"] header.hero{background:#142235}
+.kicker{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin:0 0 10px}
+header.hero h1{font-size:clamp(1.7rem,4.5vw,2.5rem);line-height:1.2;margin:0 0 14px;font-weight:700}
+header.hero p{margin:0;max-width:62ch;opacity:.92}
+.source{margin-top:22px;padding:12px 14px;border:1px solid rgba(255,255,255,.25);border-radius:10px;font-size:.9rem;opacity:.95}
+
+/* navigation */
+nav.toc{position:sticky;top:0;z-index:10;background:var(--surface);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 16px;align-items:center}
+nav.toc a{flex:none;text-decoration:none;color:var(--muted);font-size:.9rem;font-weight:600;
+  padding:6px 12px;border-radius:999px;border:1px solid var(--line)}
+nav.toc a:hover,nav.toc a:focus-visible{color:var(--accent);border-color:var(--accent);outline:none}
+.theme-btn{margin-left:auto;flex:none;background:none;border:1px solid var(--line);color:var(--muted);
+  border-radius:999px;padding:6px 12px;font:inherit;font-size:.85rem;cursor:pointer}
+.theme-btn:hover{color:var(--accent);border-color:var(--accent)}
+
+/* synthèse chiffrée */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:28px 0 8px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+.kpi .v{font-size:1.6rem;font-weight:700;color:var(--navy);line-height:1.2}
+.kpi .l{font-size:.85rem;color:var(--muted);margin-top:4px}
+
+/* questions */
+section.q{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:26px 22px;margin:26px 0;box-shadow:var(--shadow)}
+section.q h2{margin:0 0 4px;font-size:1.3rem;line-height:1.35;color:var(--navy)}
+.qnum{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;
+  background:var(--accent);color:#fff;font-size:.95rem;margin-right:10px;vertical-align:middle}
+.answer{margin:14px 0 0;padding:14px 16px;background:var(--accent-soft);border-left:4px solid var(--accent);
+  border-radius:0 10px 10px 0;font-weight:500}
+h3{font-size:1rem;margin:22px 0 8px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+p{margin:10px 0}
+ul{padding-left:20px;margin:8px 0}
+li{margin:5px 0}
+.calc{display:grid;gap:10px;margin:12px 0}
+.calc .row{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;padding:10px 14px;
+  border:1px solid var(--line);border-radius:10px}
+.calc .yr{font-weight:700;color:var(--navy);min-width:4.6em}
+.calc .eq{color:var(--muted)}
+.calc .res{margin-left:auto;font-weight:700}
+.calc .pct{font-weight:700;color:var(--accent)}
+
+.note{padding:12px 14px;border-radius:10px;margin:16px 0;font-size:.95rem}
+.note b.tag{display:block;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px}
+.note.vig{background:var(--warn-soft);border-left:4px solid var(--warn)}
+.note.vig b.tag{color:var(--warn)}
+.note.hyp{background:var(--hyp-soft);border-left:4px solid var(--hyp)}
+.note.hyp b.tag{color:var(--hyp)}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:12px 0}
+.card{border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.card h4{margin:0 0 6px;font-size:1rem;color:var(--navy)}
+.card .big{font-size:1.15rem;font-weight:700;color:var(--accent)}
+.card p{font-size:.93rem;margin:6px 0 0;color:var(--ink)}
+.card .tagline{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+figure{margin:18px 0 6px}
+figure svg{width:100%;height:auto;display:block}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:4px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.85rem;color:var(--muted);margin:6px 0 0}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+
+.synth ul{margin-top:6px}
+footer{padding:30px 0 50px;color:var(--muted);font-size:.85rem}
+@media (max-width:560px){
+  section.q{padding:20px 16px}
+  .calc .res{margin-left:0}
+}
+@media print{
+  nav.toc,.theme-btn{display:none}
+  body{background:#fff}
+  section.q{box-shadow:none;break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Analyse financière · Exercice GrB</p>
+    <h1>SRC – Société de la Relation Client<br>Lecture du compte d'exploitation 2023-2026</h1>
+    <p>Réponses aux six questions d'analyse : évolution du chiffre d'affaires, marge brute, charges, résultats, capacité d'autofinancement et retraitement de la rémunération du dirigeant.</p>
+    <div class="source">
+      <strong>Source des chiffres :</strong> fichier <em>BP_SRC_v2_budget.xlsx</em> (onglet « BP », compte d'exploitation prévisionnel, octobre 2026).
+      2023, 2024 et 2025 : <strong>réel</strong>. 2026 : <strong>atterrissage budgété</strong> (hypothèse de croissance du CA de +12 %), donc non réalisé.
+    </div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Questions">
+  <div class="wrap">
+    <a href="#q1">Q1 · CA</a>
+    <a href="#q2">Q2 · Marge brute</a>
+    <a href="#q3">Q3 · Charges</a>
+    <a href="#q4">Q4 · REX / RN</a>
+    <a href="#q5">Q5 · CAF</a>
+    <a href="#q6">Q6 · REX retraité</a>
+    <a href="#synthese">Synthèse</a>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="Changer de thème">Thème</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <div class="kpis" aria-label="Chiffres clés">
+    <div class="kpi"><div class="v">1,54 M€</div><div class="l">Chiffre d'affaires 2025 (réel), contre 0,90 M€ en 2023</div></div>
+    <div class="kpi"><div class="v">57 %</div><div class="l">Taux de marge brute 2025</div></div>
+    <div class="kpi"><div class="v">224 k€</div><div class="l">Résultat net 2025, contre −44 k€ en 2023</div></div>
+    <div class="kpi"><div class="v">456 k€</div><div class="l">REX retraité 2026 (budgété)</div></div>
+  </div>
+
+  <p style="font-size:.9rem;color:var(--muted)">Légende des encadrés : <strong style="color:var(--hyp)">Hypothèse</strong> = piste d'interprétation du document de travail, que le fichier chiffré ne permet pas de vérifier ; <strong style="color:var(--warn)">Point de vigilance</strong> = précision ou écart par rapport aux chiffres du fichier.</p>
+
+  <!-- Q1 -->
+  <section class="q" id="q1">
+    <h2><span class="qnum">1</span>Comment évolue le CA et à quel rythme ?</h2>
+    <p class="answer">Le CA augmente chaque année, mais le rythme ralentit : +44,1 % en 2024, +18,5 % en 2025, puis +12,0 % prévu en 2026.</p>
+
+    <div class="calc">
+      <div class="row"><span class="yr">2023</span><span class="eq">900 086 €</span><span class="res">point de départ</span></div>
+      <div class="row"><span class="yr">2024</span><span class="eq">1 297 147 € · soit +397 k€</span><span class="res pct">+44,1 %</span></div>
+      <div class="row"><span class="yr">2025</span><span class="eq">1 537 644 € · soit +240 k€</span><span class="res pct">+18,5 %</span></div>
+      <div class="row"><span class="yr">2026</span><span class="eq">1 722 161 € (budgété) · soit +185 k€</span><span class="res pct">+12,0 %</span></div>
+    </div>
+
+    <figure>
+      <svg id="chart-ca" role="img" aria-label="Chiffre d'affaires 2023 à 2026 en milliers d'euros"></svg>
+      <figcaption>Chiffre d'affaires, en k€ (2026 : atterrissage budgété, barre hachurée).</figcaption>
+    </figure>
+
+    <h3>Lecture</h3>
+    <ul>
+      <li>Forte accélération en 2024, puis une progression de plus en plus modérée : la croissance reste positive mais se tasse d'année en année.</li>
+      <li>La hausse en valeur absolue diminue aussi (+397 k€, +240 k€, +185 k€).</li>
+      <li>Sur la période, le CA budgété 2026 représente environ 1,9 fois celui de 2023.</li>
+    </ul>
+    <div class="note vig"><b class="tag">Point de vigilance</b>Le +12 % de 2026 est une hypothèse du budget (réel 2025 majoré de 12 %) et non un résultat constaté.</div>
+  </section>
+
+  <!-- Q2 -->
+  <section class="q" id="q2">
+    <h2><span class="qnum">2</span>Que devient la marge brute, en k€ et en % du CA ?</h2>
+    <p class="answer">La marge brute progresse en valeur chaque année (480 k€ → 878 k€ en 2025), mais son taux baisse en 2024 (47 %) avant de rebondir en 2025 (57 %).</p>
+    <p>Calcul : <strong>Marge brute = CA − Achats</strong> (compte 604, « achats d'études et prestations de services »).</p>
+
+    <div class="calc">
+      <div class="row"><span class="yr">2023</span><span class="eq">900 086 € − 419 729 € =</span><span class="res">480 357 € <span class="pct">· 53 %</span></span></div>
+      <div class="row"><span class="yr">2024</span><span class="eq">1 297 147 € − 682 890 € =</span><span class="res">614 257 € <span class="pct">· 47 %</span></span></div>
+      <div class="row"><span class="yr">2025</span><span class="eq">1 537 644 € − 659 711 € =</span><span class="res">877 933 € <span class="pct">· 57 %</span></span></div>
+      <div class="row"><span class="yr">2026</span><span class="eq">1 722 161 € − 723 308 € (budgété) =</span><span class="res">998 853 € <span class="pct">· 58 %</span></span></div>
+    </div>
+
+    <figure>
+      <svg id="chart-mb" role="img" aria-label="Marge brute 2023 à 2026 en milliers d'euros, avec le taux en pourcentage du CA"></svg>
+      <figcaption>Marge brute en k€, avec son taux en % du CA au-dessus de chaque barre.</figcaption>
+    </figure>
+
+    <h3>Lecture</h3>
+    <ul>
+      <li><strong>2024 :</strong> les achats augmentent plus vite que le CA (+63 % contre +44 %), ce qui fait passer le taux de marge de 53 % à 47 %.</li>
+      <li><strong>2025 :</strong> le CA progresse de 18,5 % alors que les achats reculent légèrement (−3,4 %) : le taux remonte à 57 %.</li>
+      <li><strong>2026 :</strong> le budget prévoit des achats à 42 % du CA, soit un taux de marge de 58 %.</li>
+    </ul>
+  </section>
+
+  <!-- Q3 -->
+  <section class="q" id="q3">
+    <h2><span class="qnum">3</span>Quelles familles de charges ont le plus bougé ? Que révèlent-elles ?</h2>
+    <p class="answer">Les <strong>salaires et charges</strong> sont la famille qui a le plus bougé (de 4,4 % à 17,2 % du CA entre 2023 et 2025), devant les <strong>charges externes</strong> (poussées par la publicité) et la <strong>direction</strong> (en baisse puis en forte hausse prévue en 2026).</p>
+
+    <div class="cards">
+      <div class="card">
+        <span class="tagline">1 · Salaires et charges</span>
+        <h4>Le poste qui change d'échelle</h4>
+        <div class="big">40 k€ → 264 k€ (2023 → 2025)</div>
+        <p>Environ ×6,7. Part du CA : 4,4 % → 5,2 % → 17,2 % → 18,9 % (2026 budgété). Hausse de +289 % en 2025. En 2025 apparaît une ligne « personnel extérieur à l'entreprise » (92 k€, puis 135 k€ budgétés en 2026) et les salaires passent de 45 k€ à 125 k€.</p>
+      </div>
+      <div class="card">
+        <span class="tagline">2 · Charges externes</span>
+        <h4>Un bond en 2025, tiré par la publicité</h4>
+        <div class="big">71 k€ → 122 k€ (2024 → 2025)</div>
+        <p>+72 % en 2025. Publicité et relations publiques : 2,4 k€ (2023), 20,1 k€ (2024), 58,3 k€ (2025), 49,8 k€ budgétés en 2026. Les frais de recrutement passent de 1,2 k€ à 12 k€ budgétés en 2026.</p>
+      </div>
+      <div class="card">
+        <span class="tagline">3 · Direction</span>
+        <h4>Baisse continue, puis rebond</h4>
+        <div class="big">145 k€ → 107 k€ → 160 k€</div>
+        <p>2023 → 2025 → 2026 (budgété). Part du CA : 16,1 % → 10,1 % → 6,9 % → 9,3 %. En 2026, la rémunération de l'exploitant est budgétée à 114 k€ (75,5 k€ en 2025) et ses cotisations à 45 k€ (30,6 k€ en 2025).</p>
+      </div>
+      <div class="card">
+        <span class="tagline">4 · Frais digitaux</span>
+        <h4>Forte hausse relative, faible montant</h4>
+        <div class="big">7,7 k€ → 18,1 k€</div>
+        <p>+59 %, +28 %, +17 % selon les années, mais le poste reste voisin de 1 % du CA : il ne suffit pas à expliquer l'évolution de la masse salariale.</p>
+      </div>
+      <div class="card">
+        <span class="tagline">5 · Exceptionnel et financier</span>
+        <h4>Un poids majeur en 2023 et 2024</h4>
+        <div class="big">−132 k€ puis −164 k€</div>
+        <p>Puis +2 k€ en 2025 et −3 k€ budgétés en 2026. En 2024, on y trouve notamment 88,8 k€ de valeur comptable d'actifs cédés, 30 k€ de provision, 64 k€ de charges exceptionnelles de gestion et 21,1 k€ de produits de cession.</p>
+      </div>
+      <div class="card">
+        <span class="tagline">6 · Postes en recul</span>
+        <h4>Honoraires et amortissements</h4>
+        <div class="big">23 k€ → 9,6 k€</div>
+        <p>Honoraires de 2023 à 2025 ; les dotations aux amortissements passent de 46,9 k€ à 18,5 k€ sur la même période (15,9 k€ budgétés en 2026).</p>
+      </div>
+    </div>
+
+    <figure>
+      <svg id="chart-perso" role="img" aria-label="Coûts de personnel : direction et salaires et charges, 2023 à 2026, en milliers d'euros"></svg>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Direction</span><span><i style="background:var(--s2)"></i>Salaires et charges</span></div>
+      <figcaption>Coûts de personnel en k€. Total direction + salaires et charges : 184 k€ (20,5 % du CA) en 2023, 198 k€ (15,3 %) en 2024, 371 k€ (24,1 %) en 2025, 485 k€ (28,1 %) en 2026 budgété.</figcaption>
+    </figure>
+
+    <h3>Ce que cela révèle</h3>
+    <ul>
+      <li>Le modèle de coûts change en 2025 : la structure salariée (salariés et personnel extérieur) prend le pas sur le coût de direction, alors que le CA ne progresse que de 18,5 %.</li>
+      <li>La publicité et le recrutement montent en même temps que la masse salariale, ce qui est cohérent avec une phase de développement de l'activité.</li>
+      <li>Les coûts de personnel pèsent nettement plus lourd dans le CA à partir de 2025, ce qui est compensé en partie par le recul des achats en % du CA.</li>
+    </ul>
+
+    <div class="note hyp"><b class="tag">Hypothèses du document de travail</b>
+      Extension de l'activité ou ouverture de centres d'appels, qui expliquerait la hausse de la masse salariale, de la publicité et des frais digitaux. Autre piste : l'arrivée d'une direction en intérim, qui expliquerait la hausse des charges externes en 2025 et la baisse des frais de direction. Le fichier ne permet pas de confirmer ces pistes : il ne contient pas d'information sur les sites, les effectifs ou la nature des contrats.</div>
+    <div class="note vig"><b class="tag">Point de vigilance</b>
+      Dans le document de travail, les parts du CA indiquées pour les salaires et charges (« 4 % » puis « 14 % ») ne correspondent pas au fichier : la part est de 4,4 % (2023), 5,2 % (2024) et 17,2 % (2025). Par ailleurs, la ligne « personnel extérieur » est classée dans les salaires et charges, et non dans les charges externes.</div>
+  </section>
+
+  <!-- Q4 -->
+  <section class="q" id="q4">
+    <h2><span class="qnum">4</span>Le résultat d'exploitation et le résultat net racontent-ils la même histoire chaque année ?</h2>
+    <p class="answer">Pas entièrement. Ils évoluent dans le même sens en 2024 et 2025, mais l'écart est très important en 2023 et 2024, et ils divergent en 2026 : le REX progresse (+1,6 %) alors que le résultat net recule (−2,3 %).</p>
+
+    <figure>
+      <svg id="chart-rexrn" role="img" aria-label="Résultat d'exploitation et résultat net, 2023 à 2026, en milliers d'euros"></svg>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Résultat d'exploitation (REX)</span><span><i style="background:var(--s3)"></i>Résultat net (RN)</span></div>
+      <figcaption>REX et résultat net en k€ (2026 : budgété).</figcaption>
+    </figure>
+
+    <div class="cards">
+      <div class="card"><span class="tagline">2023</span><h4>REX positif, RN négatif</h4>
+        <p>REX de 88,8 k€ (9,9 % du CA) mais résultat net de −43,6 k€. Écart de −132 k€, dû aux produits et charges exceptionnels et financiers (−132,3 k€).</p></div>
+      <div class="card"><span class="tagline">2024</span><h4>Un écart encore plus large</h4>
+        <p>REX de 256,1 k€ (19,7 % du CA) mais résultat net de 73,7 k€. Écart de −182 k€ : exceptionnel et financier (−164,1 k€) et impôt sur les bénéfices (−18,3 k€).</p></div>
+      <div class="card"><span class="tagline">2025</span><h4>Les deux montent</h4>
+        <p>REX de 291,7 k€ (+13,9 %) et résultat net de 223,5 k€ (+203 %). L'exceptionnel disparaît (+2 k€) ; l'impôt atteint 70,2 k€.</p></div>
+      <div class="card"><span class="tagline">2026 (budgété)</span><h4>Les deux divergent</h4>
+        <p>REX de 296,3 k€ (+1,6 %) mais résultat net de 218,4 k€ (−2,3 %) : l'impôt (−74,8 k€) et le solde exceptionnel et financier (−3,1 k€) absorbent la hausse du REX.</p></div>
+    </div>
+
+    <div class="note vig"><b class="tag">Point de vigilance</b>
+      Le document de travail répond « oui, ils augmentent et baissent en simultané ». C'est exact pour 2024 et 2025 seulement. En 2023, REX et résultat net n'ont pas le même signe, et en 2026 ils évoluent en sens opposé. La marge d'exploitation (REX en % du CA) passe de 9,9 % à 19,7 %, 19,0 % puis 17,2 % en 2026 : elle se dégrade légèrement après 2024.</div>
+  </section>
+
+  <!-- Q5 -->
+  <section class="q" id="q5">
+    <h2><span class="qnum">5</span>Combien l'activité dégage-t-elle de CAF ?</h2>
+    <p class="answer">La CAF est quasi nulle en 2023 (3,3 k€), puis devient importante dès 2024 (198,4 k€), 2025 (242,0 k€) et 2026 (234,3 k€ budgétés), soit environ 14 à 16 % du CA.</p>
+
+    <figure>
+      <svg id="chart-caf" role="img" aria-label="Capacité d'autofinancement 2023 à 2026 en milliers d'euros"></svg>
+      <figcaption>CAF en k€ avec, au-dessus de chaque barre, son poids dans le CA (2026 : budgété).</figcaption>
+    </figure>
+
+    <div class="calc">
+      <div class="row"><span class="yr">2023</span><span class="eq">Résultat net −43 557 € + amortissements 46 856 €</span><span class="res">3 299 € <span class="pct">· 0,4 % du CA</span></span></div>
+      <div class="row"><span class="yr">2024</span><span class="eq">198 373 € (voir détail ci-dessous)</span><span class="res">198 373 € <span class="pct">· 15,3 %</span></span></div>
+      <div class="row"><span class="yr">2025</span><span class="eq">Résultat net 223 456 € + amortissements 18 538 €</span><span class="res">241 994 € <span class="pct">· 15,7 %</span></span></div>
+      <div class="row"><span class="yr">2026</span><span class="eq">Résultat net 218 422 € + amortissements 15 919 € (budgété)</span><span class="res">234 342 € <span class="pct">· 13,6 %</span></span></div>
+    </div>
+
+    <p><strong>Rappel :</strong> le résultat net (RN) est ce qui reste à la fin de l'exercice ; ce n'est pas la trésorerie gagnée dans l'année. La CAF se rapproche de ce flux : <em>RN + dotations aux amortissements</em>, corrigé dans le fichier des éléments non liés à l'exploitation courante.</p>
+
+    <div class="note vig"><b class="tag">Précision sur 2024</b>
+      Dans le fichier, la CAF est calculée ainsi : résultat net + dotations aux amortissements + dotation aux provisions exceptionnelles + valeur comptable des actifs cédés − produits de cession. En 2024 : 73 665 + 27 001 + 30 000 + 88 811 − 21 103 ≈ 198 373 € (à l'arrondi près). Les cessions et provisions de 2024 pèsent donc sur le résultat net mais sont neutralisées dans la CAF.</div>
+
+    <h3>Lecture</h3>
+    <ul>
+      <li>La CAF 2025 est la plus élevée de la période ; elle recule de 3,2 % dans le budget 2026.</li>
+      <li>L'impôt sur les bénéfices augmente fortement (0 → 18,3 k€ → 70,2 k€ → 74,8 k€ budgétés), ce qui est cohérent avec un résultat avant impôt beaucoup plus élevé depuis 2024.</li>
+      <li>La trajectoire est : 2023 CAF très faible, 2024 changement net de niveau, 2025 sommet, 2026 stabilisation autour de 234 k€.</li>
+    </ul>
+    <div class="note vig"><b class="tag">Point de vigilance</b>
+      Le document de travail situe le début d'une CAF « conséquente » en 2026 (et un début « intéressant » en 2025). Selon le fichier, le changement de niveau intervient dès 2024 (198 k€). Le lien avec l'ouverture éventuelle de centres d'appels reste une hypothèse non vérifiable avec ces données.</div>
+  </section>
+
+  <!-- Q6 -->
+  <section class="q" id="q6">
+    <h2><span class="qnum">6</span>Que change la réintégration de la rémunération du dirigeant (REX retraité) ?</h2>
+    <p class="answer">Le REX retraité est nettement plus élevé que le REX comptable (+107 à +160 k€ selon l'année) et il raconte une histoire un peu différente : il est plus stable et progresse en 2026 (+14,4 %) alors que le REX comptable stagne (+1,6 %).</p>
+
+    <p><strong>Définition.</strong> Le REX retraité est le résultat d'exploitation recalculé pour refléter la performance économique « normale » de l'entreprise, notamment dans le cadre d'une cession ou d'une valorisation. Le REX comptable peut être faussé par des choix de gestion du dirigeant ou par des événements exceptionnels. Ici, le retraitement réintègre la rémunération et les cotisations de l'exploitant : <strong>REX retraité = REX + rémunération et cotisations de l'exploitant</strong>.</p>
+
+    <figure>
+      <svg id="chart-rexr" role="img" aria-label="REX et REX retraité 2023 à 2026, en milliers d'euros"></svg>
+      <div class="legend"><span><i style="background:var(--s1)"></i>REX</span><span><i style="background:var(--s2)"></i>REX retraité</span></div>
+      <figcaption>REX et REX retraité en k€ (2026 : budgété).</figcaption>
+    </figure>
+
+    <div class="calc">
+      <div class="row"><span class="yr">2023</span><span class="eq">88 752 € + 144 666 € =</span><span class="res">233 417 € <span class="pct">· 25,9 % du CA</span></span></div>
+      <div class="row"><span class="yr">2024</span><span class="eq">256 061 € + 130 452 € =</span><span class="res">386 513 € <span class="pct">· 29,8 %</span></span></div>
+      <div class="row"><span class="yr">2025</span><span class="eq">291 653 € + 106 808 € =</span><span class="res">398 461 € <span class="pct">· 25,9 %</span></span></div>
+      <div class="row"><span class="yr">2026</span><span class="eq">296 327 € + 159 691 € (budgété) =</span><span class="res">456 018 € <span class="pct">· 26,5 %</span></span></div>
+    </div>
+
+    <h3>Ce que cela change</h3>
+    <ul>
+      <li><strong>Le niveau de rentabilité :</strong> la marge d'exploitation retraitée tourne autour de 26 à 30 % du CA, contre 10 à 20 % pour la marge comptable. En 2023, la rémunération de l'exploitant (144,7 k€) pesait 16,1 % du CA.</li>
+      <li><strong>Le rythme de progression :</strong> en 2024, le REX comptable triple (+188 %) alors que le REX retraité progresse de 66 %. En 2025, le REX gagne 13,9 % mais le REX retraité seulement 3,1 % : une partie de l'amélioration du REX vient de la baisse des frais de direction (−23,6 k€).</li>
+      <li><strong>2026 :</strong> le REX comptable est quasi stable (+1,6 %) car le coût de direction budgété augmente de 52,9 k€ ; une fois ce coût réintégré, le REX retraité progresse de 14,4 %.</li>
+      <li><strong>La CAF retraitée</strong> suit le même mouvement : 148 k€, 329 k€, 349 k€, puis 394 k€ en 2026 (22,9 % du CA).</li>
+    </ul>
+
+    <div class="note vig"><b class="tag">Point de vigilance</b>
+      Dans le fichier, la ligne « rémunération normative de direction » (à saisir en négatif) est vide : toute la rémunération actuelle de l'exploitant est donc réintégrée, sans coût de remplacement. Le REX retraité présenté est de ce fait un maximum ; il diminuera dès qu'une rémunération normative de marché sera saisie.</div>
+    <div class="note hyp"><b class="tag">Hypothèse du document de travail</b>
+      Des choix de direction auraient influencé l'activité sur 2023-2026, avec une stratégie d'expansion du centre d'appel. Les chiffres montrent bien un changement de structure de coûts, mais pas sa cause.</div>
+  </section>
+
+  <!-- Synthèse -->
+  <section class="q synth" id="synthese">
+    <h2>Synthèse</h2>
+    <ul>
+      <li><strong>Croissance :</strong> CA multiplié par près de 1,9 entre 2023 et 2026 (budgété), avec une croissance qui ralentit (+44 %, +19 %, +12 %).</li>
+      <li><strong>Marge brute :</strong> 53 %, 47 %, 57 %, puis 58 % prévus : le rebond de 2025 vient d'achats stables face à un CA en hausse.</li>
+      <li><strong>Structure de coûts :</strong> les salaires et charges passent de 4,4 % à 17,2 % du CA en 2025 ; la direction baisse puis remonte en 2026 ; la publicité décolle en 2024-2025.</li>
+      <li><strong>Résultats :</strong> REX et résultat net divergent en 2023-2024 (éléments exceptionnels) et en 2026 (impôt) ; le résultat net 2025 (224 k€) est le sommet de la période.</li>
+      <li><strong>CAF :</strong> 3 k€ en 2023, puis 198 k€, 242 k€ et 234 k€ budgétés.</li>
+      <li><strong>REX retraité :</strong> 233 k€ à 456 k€, mais sans rémunération normative saisie : valeur à considérer comme haute.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Document d'analyse pédagogique réalisé à partir du fichier <em>BP_SRC_v2_budget.xlsx</em>. Les montants sont arrondis ; les années 2023 à 2025 sont des données réelles, 2026 est un budget d'atterrissage au 30 octobre 2026. Les passages signalés « Hypothèse » sont des pistes d'interprétation non vérifiées.
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* thème */
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  try{var t=localStorage.getItem('theme'); if(t) root.setAttribute('data-theme',t);}catch(e){}
+  btn.addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark' ||
+      (!root.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    var next=dark?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){}
+  });
+
+  /* graphiques à barres (SVG) */
+  var NS='http://www.w3.org/2000/svg';
+  var YEARS=['2023','2024','2025','2026'];
+  function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
+  function fmt(v){return Math.round(v).toLocaleString('fr-FR').replace(/ | /g,' ');}
+  function chart(id,series,opts){
+    opts=opts||{};
+    var svg=document.getElementById(id); if(!svg) return;
+    var W=640,H=290,m={t:28,r:10,b:34,l:10};
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    var defs=el('defs',{},svg);
+    var pat=el('pattern',{id:id+'-h',width:6,height:6,patternUnits:'userSpaceOnUse',patternTransform:'rotate(45)'},defs);
+    el('rect',{width:6,height:6,fill:'var(--surface)'},pat);
+    el('rect',{width:3,height:6,fill:'var(--line)',opacity:.9},pat);
+    var all=[];series.forEach(function(s){all=all.concat(s.v);});
+    var max=Math.max.apply(null,all.concat([0])), min=Math.min.apply(null,all.concat([0]));
+    var span=max-min||1, ch=H-m.t-m.b;
+    function y(v){return m.t+(max-v)/span*ch;}
+    var y0=y(0);
+    el('line',{x1:m.l,x2:W-m.r,y1:y0,y2:y0,stroke:'var(--line)','stroke-width':1.5},svg);
+    var gw=(W-m.l-m.r)/4, n=series.length, bw=Math.min(70,(gw-28)/n);
+    for(var i=0;i<4;i++){
+      var gx=m.l+gw*i+gw/2, x0=gx-bw*n/2;
+      series.forEach(function(s,j){
+        var v=s.v[i], top=Math.min(y(v),y0), h=Math.max(Math.abs(y(v)-y0),1);
+        var x=x0+j*bw;
+        el('rect',{x:x+2,y:top,width:bw-4,height:h,rx:3,fill:s.c,'fill-opacity':i===3?.45:1},svg);
+        if(i===3) el('rect',{x:x+2,y:top,width:bw-4,height:h,rx:3,fill:'url(#'+id+'-h)',stroke:s.c,'stroke-width':1.5,'stroke-dasharray':'4 3'},svg);
+        var label=(s.lab&&s.lab[i])?s.lab[i]:fmt(v);
+        var ty=v>=0?top-6:top+h+13;
+        var tt=el('text',{x:x+bw/2,y:ty,'text-anchor':'middle','font-size':n>1?11:13,'font-weight':600,fill:'var(--ink)'},svg);
+        tt.textContent=label;
+      });
+      var yl=el('text',{x:gx,y:H-10,'text-anchor':'middle','font-size':13,fill:'var(--muted)'},svg);
+      yl.textContent=YEARS[i]+(i===3?' (budget)':'');
+    }
+  }
+
+  chart('chart-ca',[{c:'var(--s1)',v:[900.086,1297.147,1537.644,1722.161]}]);
+  chart('chart-mb',[{c:'var(--s2)',v:[480.357,614.257,877.933,998.853],
+    lab:['480 · 53 %','614 · 47 %','878 · 57 %','999 · 58 %']}]);
+  chart('chart-perso',[
+    {c:'var(--s1)',v:[144.666,130.452,106.808,159.691]},
+    {c:'var(--s2)',v:[39.503,67.967,264.395,324.983]}]);
+  chart('chart-rexrn',[
+    {c:'var(--s1)',v:[88.752,256.061,291.653,296.327]},
+    {c:'var(--s3)',v:[-43.557,73.665,223.456,218.422]}]);
+  chart('chart-caf',[{c:'var(--s2)',v:[3.299,198.373,241.994,234.342],
+    lab:['3 · 0,4 %','198 · 15,3 %','242 · 15,7 %','234 · 13,6 %']}]);
+  chart('chart-rexr',[
+    {c:'var(--s1)',v:[88.752,256.061,291.653,296.327]},
+    {c:'var(--s2)',v:[233.417,386.513,398.461,456.018]}]);
+})();
+</script>
+</body>
+</html>
